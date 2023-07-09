@@ -8,6 +8,7 @@
 
     <uses-feature android:name="android.hardware.bluetooth"/>
     <application
+        android:name=".BluetalkApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -18,7 +19,7 @@
         android:theme="@style/Theme.BlueTalk"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".presentation.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.BlueTalk">
