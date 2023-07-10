@@ -27,6 +27,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.bluetalk.presentation.components.ChatScreen
 import com.example.bluetalk.presentation.components.DeviceScreen
 import com.example.bluetalk.ui.theme.BlueTalkTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -112,7 +113,13 @@ class MainActivity : ComponentActivity() {
                                 Text(text = "Connecting...")
                             }
                         }
-
+                        state.isConnected -> {
+                            ChatScreen(
+                                state = state,
+                                onDisconnect = viewModel::disconnectFromDevice,
+                                onSendMessage = viewModel::sendMessage
+                            )
+                        }
                         else -> {
                             DeviceScreen(
                                 state = state,
